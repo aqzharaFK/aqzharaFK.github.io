@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Americana Pipedream Apparel</title>
+  <meta name="description" content="Americana Pipedream Apparel – Wear the Dream. Handcrafted American apparel born from the open road.">
+  <meta name="keywords" content="americana, apparel, clothing, fashion, made in usa">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400;1,700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- AOS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Swiper CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+
+  <style>
+   
+    :root {
+      --accent-color: #C0182A;
+      --secondary-color: #C9933A;
+      --default-color: #1a1a1a;
+      --heading-color: #0B1E35;
+      --background-color: #ffffff;
+      --surface-color: #f8f4ed;
+      --nav-color: rgba(255,255,255,0.85);
+      --nav-hover-color: #C9933A;
+      --nav-mobile-background-color: #0B1E35;
+      --font-default: "Open Sans", system-ui, sans-serif;
+      --font-primary: "Poppins", sans-serif;
+      --font-secondary: "Jost", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { font-family: var(--font-default); color: var(--default-color); background: var(--background-color); }
+    a { color: var(--accent-color); text-decoration: none; transition: color .3s; }
+    a:hover { color: color-mix(in srgb, var(--accent-color), transparent 25%); }
+    h1,h2,h3,h4,h5,h6 { font-family: var(--font-primary); color: var(--heading-color); }
+
+    /* ─── HEADER / NAV ─── */
+    .header {
+      background: color-mix(in srgb, var(--heading-color) 95%, transparent);
+      padding: 14px 0;
+      transition: all .5s;
+      z-index: 997;
+    }
+    .header.scrolled { box-shadow: 0 0 30px rgba(0,0,0,.15); border-bottom: 2px solid var(--secondary-color); }
+    .header .sitename {
+      font-family: var(--font-primary);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--secondary-color);
+      letter-spacing: .04em;
+    }
+    .header .sitename span { color: #fff; }
+
+    .navmenu ul { margin: 0; padding: 0; list-style: none; display: flex; gap: 28px; align-items: center; }
+    .navmenu a {
+      font-family: var(--font-secondary);
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.8);
+      transition: color .3s;
+      position: relative;
+    }
+    .navmenu a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--secondary-color);
+      transition: width .3s;
+    }
+    .navmenu a:hover, .navmenu .active { color: var(--secondary-color); }
+    .navmenu a:hover::after { width: 100%; }
+
+    .btn-getstarted {
+      background: var(--accent-color);
+      color: #fff !important;
+      font-family: var(--font-secondary);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 10px 28px;
+      border-radius: 0;
+      transition: background .3s;
+      margin-left: 16px;
+    }
+    .btn-getstarted:hover { background: #9e0f1f; }
+
+    /* Mobile nav toggle */
+    .mobile-nav-toggle {
+      display: none;
+      font-size: 1.4rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* ─── SECTION TITLES ─── */
+    .section-title { text-align: center; padding-bottom: 48px; }
+    .section-title h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title h2::after {
+      content: '';
+      display: block;
+      width: 48px; height: 3px;
+      background: var(--accent-color);
+      margin: 10px auto 0;
+    }
+    .section-title p { color: #666; max-width: 620px; margin: 0 auto; }
+
+    /* ─── SECTION 1: HERO ─── */
+    #hero {
+      min-height: 100vh;
+      padding-top: 80px;
+      background: var(--heading-color);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(201,147,58,.14) 1px, transparent 1px);
+      background-size: 38px 38px;
+      animation: heroDrift 20s linear infinite;
+    }
+    #hero::after {
+      content: '';
+      position: absolute; top:0; right:0;
+      width: 48%; height: 100%;
+      background: repeating-linear-gradient(0deg, var(--accent-color) 0 36px, transparent 36px 72px);
+      opacity: .055;
+      pointer-events: none;
+    }
+    @keyframes heroDrift { to { background-position: 38px 38px; } }
+
+    #hero .hero-content { position: relative; z-index: 2; }
+    #hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    #hero h1 em { font-style: italic; color: var(--secondary-color); display: block; }
+    #hero .hero-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,.6);
+      line-height: 1.9;
+      max-width: 480px;
+      margin: 20px 0 36px;
+    }
+    .btn-hero-primary {
+      background: var(--accent-color);
+      color: #fff;
+      font-family: var(--font-secondary);
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 14px 38px;
+      border-radius: 0;
+      border: none;
+      transition: all .3s;
+    }
+    .btn-hero-primary:hover { background: #9e0f1f; color: #fff; transform: translateY(-2px); }
+    .btn-hero-outline {
+      background: transparent;
+      color: var(--secondary-color) !important;
+      border: 1.5px solid var(--secondary-color);
+      font-family: var(--font-secondary);
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 14px 38px;
+      border-radius: 0;
+      transition: all .3s;
+    }
+    .btn-hero-outline:hover { background: var(--secondary-color); color: var(--heading-color) !important; }
+
+    /* Hero badge */
+    .hero-badge-wrap {
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      border: 2.5px solid var(--secondary-color);
+      background: rgba(201,147,58,.06);
+      display: flex; align-items: center; justify-content: center;
+      animation: badgeSpin 28s linear infinite;
+      margin: auto;
+    }
+    .hero-badge-inner { animation: badgeSpin 28s linear infinite reverse; text-align: center; }
+    @keyframes badgeSpin { to { transform: rotate(360deg); } }
+    .badge-eagle { font-size: 70px; display: block; margin-bottom: 6px; }
+    .badge-label { font-family: var(--font-secondary); color: var(--secondary-color); letter-spacing: .22em; font-size: .95rem; font-weight: 700; }
+    .badge-est { font-size: .58rem; letter-spacing: .3em; color: rgba(201,147,58,.5); margin-top: 4px; }
+
+    .hero-stats { display: flex; gap: 36px; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,.1); }
+    .hero-stat-num { font-family: var(--font-primary); font-size: 2rem; font-weight: 700; color: var(--secondary-color); line-height: 1; }
+    .hero-stat-label { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-top: 4px; }
+
+    /* Scroll indicator */
+    .scroll-hint {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,.3); font-size: .6rem; letter-spacing: .3em; text-transform: uppercase;
+      text-align: center; animation: bounceY 2s ease-in-out infinite; z-index: 5;
+    }
+    @keyframes bounceY { 50% { transform: translateX(-50%) translateY(7px); } }
+
+    /* ─── SECTION 2: ABOUT ─── */
+    #about { padding: 80px 0; background: var(--surface-color); }
+    #about .about-img {
+      border-radius: 0;
+      border: 3px solid var(--secondary-color);
+      box-shadow: 12px 12px 0 rgba(192,24,42,.15);
+    }
+    #about .content h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+    #about .content p { color: #555; line-height: 1.85; }
+    #about .content .check-list li {
+      list-style: none;
+      padding: 6px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #444;
+      font-size: .92rem;
+    }
+    #about .content .check-list li i { color: var(--accent-color); margin-top: 3px; flex-shrink: 0; }
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-secondary);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      border-bottom: 1.5px solid var(--accent-color);
+      padding-bottom: 2px;
+      margin-top: 20px;
+      transition: color .3s;
+    }
+    .read-more:hover { color: var(--heading-color); border-color: var(--heading-color); }
+
+    /* About values cards */
+    .value-card {
+      background: #fff;
+      border-left: 4px solid var(--secondary-color);
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      transition: box-shadow .3s;
+    }
+    .value-card:hover { box-shadow: 4px 8px 24px rgba(0,0,0,.1); }
+    .value-card h5 { font-size: .88rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 4px; color: var(--heading-color); }
+    .value-card p { font-size: .82rem; color: #666; margin: 0; }
+    .value-card .val-num { font-size: 2rem; font-weight: 900; color: var(--secondary-color); line-height: 1; font-family: var(--font-primary); }
+
+    /* ─── SECTION 3: COLLECTION / SERVICES ─── */
+    #collection { padding: 80px 0; background: #fff; }
+    .product-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.08);
+      overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+      height: 100%;
+    }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,.12); }
+    .product-thumb {
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 72px;
+      position: relative;
+      overflow: hidden;
+      transition: background .3s;
+    }
+    .product-thumb .prod-emoji { transition: transform .4s; display: block; }
+    .product-card:hover .prod-emoji { transform: scale(1.15) rotate(-5deg); }
+    .product-badge {
+      position: absolute; top: 14px; right: 14px;
+      background: var(--secondary-color);
+      color: var(--heading-color);
+      font-family: var(--font-secondary);
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 4px 12px;
+    }
+    .product-card .card-body { padding: 20px; border-top: 1px solid rgba(0,0,0,.06); }
+    .product-card .card-title { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    .product-card .card-text { font-size: .78rem; color: #888; line-height: 1.6; margin-bottom: 14px; }
+    .product-price { font-family: var(--font-primary); font-size: 1.25rem; font-weight: 700; color: var(--accent-color); }
+    .btn-add-cart {
+      background: var(--heading-color);
+      color: #fff;
+      font-family: var(--font-secondary);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      border-radius: 0;
+      border: none;
+      transition: background .3s;
+    }
+    .btn-add-cart:hover { background: var(--accent-color); color: #fff; }
+
+    /* ─── SECTION 4: LOOKBOOK / PORTFOLIO ─── */
+    #lookbook { padding: 80px 0; background: var(--surface-color); }
+    .look-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+    }
+    .look-item img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform .5s;
+    }
+    .look-item:hover img { transform: scale(1.08); }
+    .look-overlay {
+      position: absolute; inset: 0;
+      background: rgba(11,30,53,.72);
+      opacity: 0;
+      transition: opacity .35s;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 8px;
+      z-index: 2;
+    }
+    .look-item:hover .look-overlay { opacity: 1; }
+    .look-overlay h5 { font-size: 1rem; font-weight: 700; color: #fff; margin: 0; text-align: center; }
+    .look-overlay span { font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; color: var(--secondary-color); }
+    .look-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+    .look-filter-btn {
+      background: #fff;
+      border: 1.5px solid rgba(0,0,0,.15);
+      color: #444;
+      font-family: var(--font-secondary);
+      font-size: .72rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      cursor: pointer;
+      transition: all .25s;
+    }
+    .look-filter-btn.active, .look-filter-btn:hover {
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+      color: #fff;
+    }
+
+    /* ─── CALL TO ACTION ─── */
+    #cta {
+      padding: 80px 0;
+      background: var(--heading-color);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    #cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(201,147,58,.03) 60px, rgba(201,147,58,.03) 61px);
+      pointer-events: none;
+    }
+    #cta h3 { font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 16px; }
+    #cta p { color: rgba(255,255,255,.6); max-width: 540px; margin: 0 auto 36px; line-height: 1.85; }
+    .btn-cta {
+      background: var(--secondary-color);
+      color: var(--heading-color);
+      font-family: var(--font-secondary);
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 14px 44px;
+      border-radius: 0;
+      border: none;
+      transition: all .3s;
+    }
+    .btn-cta:hover { background: #b07e28; color: #fff; transform: translateY(-2px); }
+
+    /* ─── SECTION 5: CONTACT ─── */
+    #contact { padding: 80px 0; background: #fff; }
+    .info-wrap {
+      background: var(--surface-color);
+      padding: 32px;
+      height: 100%;
+    }
+    .info-item {
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .info-item:last-child { border-bottom: none; }
+    .info-item i { font-size: 1.4rem; color: var(--accent-color); margin-right: 16px; flex-shrink: 0; }
+    .info-item h3 { font-size: .88rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 4px; }
+    .info-item p { font-size: .88rem; color: #555; margin: 0; }
+    .contact-form .form-control {
+      border-radius: 0;
+      border: 1.5px solid rgba(0,0,0,.12);
+      padding: 12px 16px;
+      font-size: .9rem;
+      transition: border-color .3s;
+    }
+    .contact-form .form-control:focus { border-color: var(--accent-color); box-shadow: none; }
+    .contact-form label { font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #555; margin-bottom: 6px; }
+    .btn-submit {
+      background: var(--accent-color);
+      color: #fff;
+      font-family: var(--font-secondary);
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 14px 44px;
+      border-radius: 0;
+      border: none;
+      transition: background .3s;
+      width: 100%;
+    }
+    .btn-submit:hover { background: #9e0f1f; }
+
+    /* ─── FOOTER ─── */
+    .footer { background: var(--heading-color); color: rgba(255,255,255,.65); }
+    .footer-newsletter { background: color-mix(in srgb, var(--heading-color) 85%, #000); padding: 48px 0; }
+    .footer-newsletter h4 { color: var(--secondary-color); font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
+    .footer-newsletter p { color: rgba(255,255,255,.55); font-size: .88rem; margin-bottom: 20px; }
+    .newsletter-form { display: flex; max-width: 420px; margin: 0 auto; }
+    .newsletter-form input[type="email"] {
+      flex: 1;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 0;
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      font-size: .88rem;
+      outline: none;
+    }
+    .newsletter-form input[type="email"]::placeholder { color: rgba(255,255,255,.3); }
+    .newsletter-form input[type="submit"] {
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-family: var(--font-secondary);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .3s;
+      border-radius: 0;
+    }
+    .newsletter-form input[type="submit"]:hover { background: #9e0f1f; }
+    .footer-top { padding: 56px 0 24px; }
+    .footer .sitename { font-family: var(--font-primary); font-size: 1.3rem; font-weight: 800; color: var(--secondary-color); }
+    .footer-contact p { font-size: .85rem; color: rgba(255,255,255,.55); line-height: 1.7; }
+    .footer-links h4 { font-size: .95rem; font-weight: 700; color: #fff; margin-bottom: 16px; }
+    .footer-links ul { list-style: none; padding: 0; }
+    .footer-links ul li { padding: 5px 0; font-size: .85rem; }
+    .footer-links ul li a { color: rgba(255,255,255,.55); transition: color .3s; }
+    .footer-links ul li a:hover { color: var(--secondary-color); }
+    .footer-links ul li i { color: var(--accent-color); margin-right: 6px; font-size: .75rem; }
+    .social-links a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,.2);
+      color: rgba(255,255,255,.55);
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 0;
+      margin-right: 8px;
+      font-size: .9rem;
+      transition: all .3s;
+    }
+    .social-links a:hover { border-color: var(--secondary-color); color: var(--secondary-color); }
+    .copyright { border-top: 1px solid rgba(255,255,255,.08); padding: 24px 0; font-size: .82rem; color: rgba(255,255,255,.4); }
+    .copyright strong { color: var(--secondary-color); }
+    .credits a { color: rgba(255,255,255,.35); }
+
+    /* ─── SCROLL TOP ─── */
+    .scroll-top {
+      position: fixed;
+      right: 20px; bottom: 20px;
+      width: 40px; height: 40px;
+      background: var(--accent-color);
+      color: #fff;
+      font-size: 1.2rem;
+      z-index: 999;
+      opacity: 0;
+      transition: all .4s;
+    }
+    .scroll-top.active { opacity: 1; }
+    .scroll-top:hover { background: #9e0f1f; color: #fff; }
+
+    /* ─── TESTIMONIALS ─── */
+    #testimonials { padding: 80px 0; background: var(--surface-color); }
+    .testimonial-item {
+      background: #fff;
+      padding: 32px;
+      border-top: 4px solid var(--accent-color);
+      box-shadow: 0 4px 24px rgba(0,0,0,.06);
+    }
+    .testimonial-img {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--secondary-color);
+      margin-bottom: 16px;
+    }
+    .testimonial-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
+    .testimonial-item h4 { font-size: .78rem; color: var(--secondary-color); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px; }
+    .stars i { color: #f5c518; font-size: .85rem; }
+    .testimonial-item p { font-size: .88rem; color: #555; line-height: 1.8; font-style: italic; margin-top: 12px; }
+
+    /* ─── SECTION: TEAM ─── */
+    #team { padding: 80px 0; background: #fff; }
+    .team-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.08);
+      overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+      text-align: center;
+    }
+    .team-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,.12); }
+    .team-avatar {
+      width: 100%;
+      aspect-ratio: 1;
+      background: var(--surface-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      position: relative;
+      overflow: hidden;
+      transition: background .3s;
+    }
+    .team-card:hover .team-avatar { background: color-mix(in srgb, var(--heading-color) 90%, transparent); }
+    .team-avatar .team-emoji { transition: transform .4s; display: block; }
+    .team-card:hover .team-emoji { transform: scale(1.1); }
+    .team-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform .4s;
+    }
+    .team-card:hover .team-avatar img { transform: scale(1.06); }
+    .team-avatar-overlay {
+      position: absolute; inset: 0;
+      background: rgba(11,30,53,.75);
+      opacity: 0;
+      transition: opacity .35s;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 18px;
+      gap: 10px;
+      z-index: 2;
+    }
+    .team-card:hover .team-avatar-overlay { opacity: 1; }
+    .team-avatar-overlay a {
+      width: 34px; height: 34px;
+      border: 1.5px solid rgba(255,255,255,.55);
+      color: rgba(255,255,255,.85);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: .9rem;
+      transition: all .25s;
+    }
+    .team-avatar-overlay a:hover { border-color: var(--secondary-color); color: var(--secondary-color); }
+    .team-info { padding: 22px 20px 24px; border-top: 3px solid var(--secondary-color); }
+    .team-info h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 2px; color: var(--heading-color); }
+    .team-info .role {
+      font-family: var(--font-secondary);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+    .team-info p { font-size: .8rem; color: #777; line-height: 1.7; margin: 0; }
+
+    /* ─── RESPONSIVE MOBILE NAV ─── */
+    @media (max-width: 1199px) {
+      .mobile-nav-toggle { display: block; }
+      .navmenu ul {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--heading-color);
+        padding: 16px 0;
+        z-index: 998;
+      }
+      .navmenu ul.open { display: flex; }
+      .navmenu ul li a { padding: 10px 24px; display: block; }
+      .navmenu ul li a::after { display: none; }
+      .btn-getstarted { display: none; }
+    }
+
+    /* AOS fade-up utility */
+    [data-aos] { pointer-events: none; }
+    [data-aos].aos-animate { pointer-events: auto; }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <!-- ─── HEADER ─── -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="#hero" class="logo d-flex align-items-center me-auto text-decoration-none">
+        <h1 class="sitename mb-0">Americana <span>Pipedream</span></h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul id="nav-list">
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#lookbook">Lookbook</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle bi bi-list" id="mobileToggle"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="#collection">Shop Now</a>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- SECTION 1: HERO                                   -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section id="hero" class="hero section">
+      <div class="container">
+        <div class="row gy-4 align-items-center" style="min-height:100vh; padding: 100px 0 60px;">
+
+          <!-- Left: Text -->
+          <div class="col-lg-6 order-2 order-lg-1 hero-content" data-aos="zoom-out">
+            <p style="font-size:.72rem; letter-spacing:.4em; text-transform:uppercase; color:var(--secondary-color); margin-bottom:16px;">
+              ★ Est. 2020 · Made in America ★
+            </p>
+            <h1>Wear the<em>Dream.</em></h1>
+            <p class="hero-sub">
+              Apparel born from the open road, the back porch, and the restless spirit that built this country. Every stitch tells a story — no fast fashion, no empty logos.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#collection" class="btn-hero-primary">Shop the Collection</a>
+              <a href="#about" class="btn-hero-outline">Our Story</a>
+            </div>
+            <div class="hero-stats">
+              <div>
+                <div class="hero-stat-num">5K+</div>
+                <div class="hero-stat-label">Happy Customers</div>
+              </div>
+              <div>
+                <div class="hero-stat-num">100%</div>
+                <div class="hero-stat-label">Refund Gurantee</div>
+              </div>
+              <div>
+                <div class="hero-stat-num">Limited</div>
+                <div class="hero-stat-label">Free shipping cost</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Badge -->
+          <div class="col-lg-6 order-1 order-lg-2 d-flex justify-content-center" data-aos="zoom-out" data-aos-delay="200">
+            <div class="hero-badge-wrap">
+              <div class="hero-badge-inner">
+                <span class="badge-eagle"><img src="data:image/jpeg;base64,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" class="rounded-circle" alt="" width="400" height="400"></span>
+                <div class="badge-label"></div>
+                <div class="badge-est"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="scroll-hint">
+        <div>↓</div>
+        <div>Scroll</div>
+      </div>
+    </section><!-- /Hero Section -->
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- SECTION 2: ABOUT / OUR STORY                     -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section id="about" class="section">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Our Story</h2>
+        <p>Built on backbone and belief — apparel with meaning for the bold and the free.</p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4 align-items-center">
+
+          <!-- Badge / Visual -->
+          <div class="col-lg-5" data-aos="zoom-in" data-aos-delay="100">
+            <div style="background:var(--heading-color); aspect-ratio:1; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+              <!-- Mini flag art -->
+              <div style="position:absolute; inset:0; background: repeating-linear-gradient(0deg, rgba(192,24,42,.4) 0 30px, rgba(255,255,255,.05) 30px 60px);"></div>
+              <div style="position:relative; text-align:center; z-index:2;">
+                <div style="font-size:90px;"><img src="data:image/jpeg;base64,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" alt="" width="600" height="600"></div>       
+              </div>
+            </div>
+          </div>
+
+          <!-- Text -->
+          <div class="col-lg-7 content" data-aos="fade-up" data-aos-delay="150">
+            <h2 style="font-size:2rem; font-weight:800; margin-bottom:16px;">
+              Crafted for the <span style="color:var(--accent-color);">Bold</span> & the Free
+            </h2>
+            <p style="color:#555; line-height:1.85; margin-bottom:20px;">
+              Americana Pipedream Apparel was born with a single purpose: the clothes on your back should mean something. Inspired by working hands, wide skies, and the stubborn history that defines the world through the past.
+            </p>
+            <ul class="check-list ps-0" style="list-style:none;">
+              <li class="d-flex align-items-start gap-2 py-2" style="color:#444; font-size:.92rem; border-bottom:1px solid rgba(0,0,0,.06);">
+                <i class="bi bi-check2-circle mt-1" style="color:var(--accent-color);"></i>
+                <span>100% Legal Surplus from all around the world.</span>
+              </li>
+              <li class="d-flex align-items-start gap-2 py-2" style="color:#444; font-size:.92rem; border-bottom:1px solid rgba(0,0,0,.06);">
+                <i class="bi bi-check2-circle mt-1" style="color:var(--accent-color);"></i>
+                <span>Style with history, function and style.</span>
+              </li>
+              <li class="d-flex align-items-start gap-2 py-2" style="color:#444; font-size:.92rem;">
+                <i class="bi bi-check2-circle mt-1" style="color:var(--accent-color);"></i>
+                <span>Small-batch drops that wear in, not out — timeless fashion.</span>
+              </li>
+            </ul>
+            <a href="#collection" class="read-more mt-3 d-inline-flex align-items-center gap-2">
+              <span>Explore the Collection</span><i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Stats row -->
+        <div class="row gy-4 mt-5">
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="value-card">
+              <div class="val-num">5K+</div>
+              <h5>Loyal Customers</h5>
+              <p>Across all around the world.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="value-card">
+              <div class="val-num">100%</div>
+              <h5>Refund Guarantee</h5>
+              <p>No shortcuts. No overseas shortcuts.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="value-card">
+              <div class="val-num">Limited</div>
+              <h5>Free-cost shipping</h5>
+              <p>All around the world</p>             
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="value-card">
+              <div class="val-num">0%</div>
+              <h5>Compromises Made</h5>
+              <p>Always the surplus.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- SECTION 3: COLLECTION                            -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section id="collection" class="section" style="background:var(--surface-color);">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>The Collection</h2>
+        <p>Threads for the bold and the free — thoughtfully made apparel built to last.</p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4">
+
+          <!-- Product 1 -->
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-card w-100">
+              <div class="product-thumb" style="background:#1a3a5c;">
+                <span class="patches"><img src="https://www.americanapipedream.com/cdn/shop/files/MiscUSpatches2.jpg?v=1770734570&width=1080" alt=""></span>
+                <span class="product-badge">Bestseller</span>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Random US Military Patch</h5>
+                <p class="card-text"></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="product-price">$48.00</span>
+                  <button class="btn-add-cart">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="product-card w-100">
+              <div class="product-thumb" style="background:#5c1a1a;">
+                <span class="hoodie"><img src="https://www.americanapipedream.com/cdn/shop/files/IDPM_Woobie_Hoodie_Front.jpg?v=1758564769&width=1080" alt=""></span>
+                <span class="product-badge">New Drop</span>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">AP Woobie Hoodie</h5>
+                <p class="card-text">Brushed cotton twill · Vintage plaid · Relaxed fit</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="product-price">$89.00</span>
+                  <button class="btn-add-cart">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="product-card w-100">
+              <div class="product-thumb" style="background:#2d2d2d;">
+                <span class="knife"><img src="https://www.americanapipedream.com/cdn/shop/files/Untitled_1.jpg?v=1694108538&width=1080" alt="" width="325" height="236"></span>
+                <span class="product-badge">Limited</span>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Higonokami Folder (Blade 1.5" to 2.63")</h5>
+                <p class="card-text"></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="product-price">$38.00</span>
+                  <button class="btn-add-cart">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 4 -->
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="product-card w-100">
+              <div class="product-thumb" style="background:#2a4a2a;">
+                <span class="shoe"><img src="https://www.americanapipedream.com/cdn/shop/products/Myproject-1-2022-12-13T185317.816.png?v=1670979208&width=1080" alt="" width="325" height="236"></span>
+                <span class="product-badge">Signature</span>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">White Servis Cheetah High Top Sneakers</h5>
+                <p class="card-text">Full-grain leather · Goodyear welt · Rugged sole</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="product-price">$198.00</span>
+                  <button class="btn-add-cart">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 5 -->
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-card w-100">
+              <div class="product-thumb" style="background:#3d2a1a;">
+                <span class="shemaig"><img src="https://www.americanapipedream.com/cdn/shop/files/Greenshem.jpg?v=1752696286&width=1080" alt="" width="325" height="236"></span>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Unissued Shemagh</h5>
+                <p class="card-text">Merino wool blend · Classic fringe · Double-woven</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="product-price">$34.00</span>
+                  <button class="btn-add-cart">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 6 -->
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="product-card w-100">
+              <div class="product-thumb" style="background:#1a1a2e;">
+                <span class="gloves"><img src="https://www.americanapipedream.com/cdn/shop/files/IMG-4431.jpg?v=1775239352&width=1080" alt="" width="325" height="236"></span>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Unissued USMC Coyote Brown Nomex FROG Combat Gloves</h5>
+                <p class="card-text">Saddle leather · Knit lining · Reinforced palm</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="product-price">$42.00</span>
+                  <button class="btn-add-cart">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 7 -->
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="product-card w-100">
+              <div class="product-thumb" style="background:#2e3a1a;">
+                <span class="pants"><img src="https://www.americanapipedream.com/cdn/shop/files/10_564612a6-aaf0-4d2e-bbe1-c076ab19feb1.png?v=1727365570&width=1080" alt="" width="325" height="236"></span>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Issued Austrian Bundesheer KAZ 03 Pants</h5>
+                <p class="card-text">Durable · Belt loops</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="product-price">$62.00</span>
+                  <button class="btn-add-cart">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 8 -->
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="product-card w-100">
+              <div class="product-thumb" style="background:#1c2a3a;">
+                <span class="hat"><img src="https://www.americanapipedream.com/cdn/shop/files/Untitled_-_2025-08-28T124549.847.png?v=1756925645&width=1080" alt="" width="325" height="236"></span>
+                <span class="product-badge">Sale</span>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Pakistani Wool Pakol</h5>
+                <p class="card-text">Wool · Curved brim</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="product-price">$28.00</span>
+                  <button class="btn-add-cart">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="text-center mt-5" data-aos="fade-up">
+          <a href="#" class="btn-hero-primary">View Full Catalog →</a>
+        </div>
+      </div>
+
+    </section><!-- /Collection Section -->
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- CALL TO ACTION                                   -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section id="cta" class="section">
+      <div class="container" data-aos="zoom-in" data-aos-delay="100">
+        <h3>The Great American Wardrobe Awaits</h3>
+        <p>Sign up for early access to new drops, exclusive deals, and behind-the-scenes from our workshop. No spam — just good threads.</p>
+        <a href="#contact" class="btn-cta">Get Early Access</a>
+      </div>
+    </section><!-- /CTA Section -->
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- SECTION 4: LOOKBOOK                              -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section id="lookbook" class="section">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Lookbook</h2>
+        <p>The Summer '25 Season — styled for the road, the field, and everything in between.</p>
+      </div>
+
+      <div class="container">
+
+        <div class="look-filters" data-aos="fade-up">
+          <button class="look-filter-btn active">All</button>
+          <button class="look-filter-btn">Tops</button>
+          <button class="look-filter-btn">Outerwear</button>
+          <button class="look-filter-btn">Accessories</button>
+          <button class="look-filter-btn">Footwear</button>
+        </div>
+
+        <div class="row g-3" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-6 col-md-6">
+            <div class="look-item" style="background:#1a3a5c; aspect-ratio:1.2;">
+              <img src="https://www.americanapipedream.com/cdn/shop/files/MiscUSpatches2.jpg?v=1770734570&width=1080" alt="Random US Military Patch">
+              <div class="look-overlay">
+                <h5>Random US Military Patch</h5>
+                <span>Accessories · $48.00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="look-item" style="background:#5c1a1a; aspect-ratio:.85;">
+              <img src="https://www.americanapipedream.com/cdn/shop/files/IDPM_Woobie_Hoodie_Front.jpg?v=1758564769&width=1080" alt="AP Woobie Hoodie">
+              <div class="look-overlay">
+                <h5>AP Woobie Hoodie</h5>
+                <span>Tops · $89.00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="look-item" style="background:#2d2d2d; aspect-ratio:.85;">
+              <img src="https://www.americanapipedream.com/cdn/shop/files/Untitled_1.jpg?v=1694108538&width=1080" alt="Higonokami Folder">
+              <div class="look-overlay">
+                <h5>Higonokami Folder</h5>
+                <span>Accessories · $38.00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="look-item" style="background:#2a4a2a; aspect-ratio:.9;">
+              <img src="https://www.americanapipedream.com/cdn/shop/products/Myproject-1-2022-12-13T185317.816.png?v=1670979208&width=1080" alt="White Servis Cheetah High Top Sneakers">
+              <div class="look-overlay">
+                <h5>Cheetah High Top Sneakers</h5>
+                <span>Footwear · $198.00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="look-item" style="background:#3d2a1a; aspect-ratio:.9;">
+              <img src="https://www.americanapipedream.com/cdn/shop/files/Greenshem.jpg?v=1752696286&width=1080" alt="Unissued Shemagh">
+              <div class="look-overlay">
+                <h5>Unissued Shemagh</h5>
+                <span>Accessories · $34.00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="look-item" style="background:#1c2a3a; aspect-ratio:1.6;">
+              <img src="https://www.americanapipedream.com/cdn/shop/files/Untitled_-_2025-08-28T124549.847.png?v=1756925645&width=1080" alt="Pakistani Wool Pakol">
+              <div class="look-overlay">
+                <h5>Pakistani Wool Pakol</h5>
+                <span>Accessories · $28.00</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /Lookbook Section -->
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- TESTIMONIALS                                     -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section id="testimonials" class="section" style="background:var(--surface-color);">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>What Our Customers Say</h2>
+        <p>Real people, real stories — from the heartland to the coast.</p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="testimonial-item">
+              <div style="font-size:40px; margin-bottom:12px;"></div>
+              <h3>Jesse M.</h3>
+              <h4>Nashville, TN</h4>
+              <div class="stars mb-2">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>"The Route 66 Tee is the best shirt I've owned. It's been washed 50 times and looks better every time. Real quality, real America."</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="testimonial-item">
+              <div style="font-size:40px; margin-bottom:12px;"></div>
+              <h3>Amber K.</h3>
+              <h4>Billings, MT</h4>
+              <div class="stars mb-2">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>"Finally a brand that walks the walk. The flannel is insanely soft and the fit is perfect. Already ordered two more colors."</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="testimonial-item">
+              <div style="font-size:40px; margin-bottom:12px;"></div>
+              <h3>Cole R.</h3>
+              <h4>Austin, TX</h4>
+              <div class="stars mb-2">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>"The Frontier Boots broke in after the first week and now they're the most comfortable boots I've ever worn. Worth every penny."</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /Testimonials -->
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- SECTION: MEET THE MAKERS                          -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section id="team" class="section">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Meet the Makers</h2>
+        <p>Behind every stitch is a person who believes in doing things the right way. These are the hands, hearts, and heads behind Americana Pipedream.</p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4 justify-content-center">
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-card">
+              <div class="team-avatar" style="background:#0B1E35;">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Wyatt Callahan">
+                <div class="team-avatar-overlay">
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-twitter-x"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h3>Wyatt Callahan</h3>
+                <p class="role">Founder & Creative Director</p>
+                <p>Born on a dirt road in Tennessee, Wyatt built APA from a pickup truck and a dream. He designs every piece with the open road in mind.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-card">
+              <div class="team-avatar" style="background:#8B1A1A;">
+                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80" alt="Mae Holloway">
+                <div class="team-avatar-overlay">
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-pinterest"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h3>Mae Holloway</h3>
+                <p class="role">Head of Design & Textiles</p>
+                <p>Mae sources every fabric by hand, traveling the country to find the mills that still do it the old way — slow, careful, and built to last.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-card">
+              <div class="team-avatar" style="background:#2a4a2a;">
+                <img src="https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=600&q=80" alt="Cody Briggs">
+                <div class="team-avatar-overlay">
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-twitter-x"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h3>Cody Briggs</h3>
+                <p class="role">Master Craftsman & Production</p>
+                <p>With 20 years on the workshop floor, Cody oversees every step of production — from cut to stitch to finish — refusing to rush quality.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-card">
+              <div class="team-avatar" style="background:#3d2a1a;">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80" alt="Della Stone">
+                <div class="team-avatar-overlay">
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-tiktok"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h3>Della Stone</h3>
+                <p class="role">Brand & Community Lead</p>
+                <p>Della tells the APA story to the world — through campaigns, collabs, and conversations that keep the community close and the brand honest.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /Team Section -->
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- SECTION 5: CONTACT                               -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section id="contact" class="section">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Say Howdy</h2>
+        <p>Questions, wholesale inquiries, or just want to talk threads — we're here.</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+
+          <!-- Info -->
+          <div class="col-lg-5">
+            <div class="info-wrap">
+              <h3 style="font-size:1.3rem; font-weight:800; color:var(--heading-color); margin-bottom:24px;">Get in Touch</h3>
+              <div class="info-item d-flex align-items-start">
+                <i class="bi bi-geo-alt"></i>
+                <div>
+                  <h3>Location</h3>
+                  <p>Nashville, Tennessee, USA</p>
+                </div>
+              </div>
+              <div class="info-item d-flex align-items-start">
+                <i class="bi bi-telephone"></i>
+                <div>
+                  <h3>Call Us</h3>
+                  <p>(615) 555 — 0192</p>
+                </div>
+              </div>
+              <div class="info-item d-flex align-items-start">
+                <i class="bi bi-envelope"></i>
+                <div>
+                  <h3>Email Us</h3>
+                  <p>hello@americanapipedream.com</p>
+                </div>
+              </div>
+              <div class="info-item d-flex align-items-start">
+                <i class="bi bi-clock"></i>
+                <div>
+                  <h3>Hours</h3>
+                  <p>Mon – Fri · 9am to 5pm CST</p>
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <h4 style="font-size:.88rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--heading-color); margin-bottom:14px;">Follow the Journey</h4>
+                <div class="social-links d-flex">
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-twitter-x"></i></a>
+                  <a href="#"><i class="bi bi-tiktok"></i></a>
+                  <a href="#"><i class="bi bi-pinterest"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="col-lg-7">
+            <form class="contact-form">
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <label class="pb-1">Your Name</label>
+                  <input type="text" class="form-control" placeholder="Jesse James">
+                </div>
+                <div class="col-md-6">
+                  <label class="pb-1">Your Email</label>
+                  <input type="email" class="form-control" placeholder="you@example.com">
+                </div>
+                <div class="col-md-12">
+                  <label class="pb-1">Subject</label>
+                  <input type="text" class="form-control" placeholder="Order, wholesale, collab...">
+                </div>
+                <div class="col-md-12">
+                  <label class="pb-1">Message</label>
+                  <textarea class="form-control" rows="6" placeholder="Tell us what's on your mind..."></textarea>
+                </div>
+                <div class="col-md-12">
+                  <button type="button" class="btn-submit" onclick="this.textContent='✓ Message Sent! We\'ll be in touch.'; this.style.background='#2a4a2a'; setTimeout(()=>{this.textContent='Send Message';this.style.background='';},4000);">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <!-- ─── FOOTER ─── -->
+  <footer id="footer" class="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-6">
+            <h4>Join the Pipedream Tribe</h4>
+            <p>Get early access to new drops, exclusive deals, and stories from the road.</p>
+            <div class="newsletter-form">
+              <input type="email" placeholder="Your email address...">
+              <input type="submit" value="Subscribe">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="#hero" class="d-flex align-items-center text-decoration-none mb-2">
+            <span class="sitename">Americana Pipedream</span>
+          </a>
+          <div class="footer-contact pt-2">
+            <p>Nashville, Tennessee, USA</p>
+            <p class="mt-2"><strong>Phone:</strong> <span>(615) 555-0192</span></p>
+            <p><strong>Email:</strong> <span>hello@americanapipedream.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-3">
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-tiktok"></i></a>
+            <a href=""><i class="bi bi-pinterest"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Navigate</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#hero">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#about">Our Story</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#collection">Collection</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#lookbook">Lookbook</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#team">Team</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Shop</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Tops & Tees</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Outerwear</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Accessories</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Footwear</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Sale</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-links">
+          <h4>About Americana Pipedream</h4>
+          <p>Born from the open road and the back porch. Every stitch tells a story of the American spirit — crafted for those who live boldly, work hard, and wear their values.</p>
+          <p class="mt-2" style="font-size:.78rem; color:rgba(255,255,255,.3);">Est. 2020 · Nashville, TN · Made with Pride</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1">Americana Pipedream Apparel</strong> <span>All Rights Reserved</span></p>
+      <div class="credits" style="font-size:.75rem; color:rgba(255,255,255,.25); margin-top:4px;">
+        Built with the Arsha Bootstrap Template by <a href="https://bootstrapmade.com/" style="color:rgba(255,255,255,.3);">BootstrapMade</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center text-decoration-none">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    // Init AOS
+    AOS.init({ duration: 700, easing: 'ease-in-out', once: true, mirror: false });
+
+    // Sticky header
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Scroll top
+    const scrollTop = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+      scrollTop.classList.toggle('active', window.scrollY > 300);
+    });
+    scrollTop.addEventListener('click', e => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Mobile nav toggle
+    document.getElementById('mobileToggle').addEventListener('click', () => {
+      document.getElementById('nav-list').classList.toggle('open');
+    });
+
+    // Lookbook filter buttons
+    document.querySelectorAll('.look-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.look-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    // Smooth scroll nav links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+          document.getElementById('nav-list').classList.remove('open');
+        }
+      });
+    });
+
+    // Active nav on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.navmenu a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      navLinks.forEach(l => {
+        l.classList.remove('active');
+        if (l.getAttribute('href') === '#' + current) l.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
